@@ -44,6 +44,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     ){
         Text(text = "PV", style = MaterialTheme.typography.titleLarge)
         Text(text = "Kadu")
+        Text(text = "Pororonga")
     }
 }
 
