@@ -46,6 +46,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         Text(text = "Kadu")
         Text(text = "Pororonga")
         Text(text = "Carlos")
+        Text(text = "Luan")
     }
 }
 
