@@ -42,7 +42,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             .padding(top = 64.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Text(text = "PV", style = MaterialTheme.typography.titleLarge)
+        Text(text = "PV", style = MaterialTheme.typography.titleMedium)
         Text(text = "Kadu", style = MaterialTheme.typography.titleMedium)
         Text(text = "Pororonga")
         Text(text = "Carlos")
