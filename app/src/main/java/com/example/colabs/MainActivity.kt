@@ -43,7 +43,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         Text(text = "PV", style = MaterialTheme.typography.titleLarge)
-        Text(text = "Kadu")
+        Text(text = "Kadu", style = MaterialTheme.typography.titleMedium)
         Text(text = "Pororonga")
         Text(text = "Carlos")
         Text(text = "Luan")
