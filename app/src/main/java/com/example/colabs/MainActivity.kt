@@ -50,6 +50,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             Text(text = "Luan")
             Text(text = "Yuri")
             Text(text = "Amin", style = MaterialTheme.typography.titleSmall)
+            Text(text = "Cucamonga", style = MaterialTheme.typography.titleSmall)
+
         }
     }
 }
