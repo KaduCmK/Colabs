@@ -42,13 +42,15 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             .padding(top = 64.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Text(text = "PV", style = MaterialTheme.typography.titleLarge)
-        Text(text = "Kadu", style = MaterialTheme.typography.titleMedium)
-        Text(text = "Pororonga")
-        Text(text = "Carlos")
-        Text(text = "Luan")
-        Text(text = "Yuri")
-        Text(text = "Amin", style = MaterialTheme.typography.titleSmall)
+        Column (modifier = Modifier.weight(1f)){
+            Text(text = "PV", style = MaterialTheme.typography.titleMedium)
+            Text(text = "Kadu", style = MaterialTheme.typography.titleMedium)
+            Text(text = "Pororonga")
+            Text(text = "Carlos")
+            Text(text = "Luan")
+            Text(text = "Yuri")
+            Text(text = "Amin", style = MaterialTheme.typography.titleSmall)
+        }
     }
 }
 
