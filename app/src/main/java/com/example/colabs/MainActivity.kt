@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.colabs.ui.theme.ColabsTheme
+import java.time.LocalDateTime
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +50,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         Text(text = "Luan")
         Text(text = "Yuri")
         Text(text = "Amin", style = MaterialTheme.typography.titleSmall)
+
+        Text(text = LocalDateTime.now().toString())
     }
 }
 
