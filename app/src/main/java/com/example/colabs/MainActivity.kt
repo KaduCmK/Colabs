@@ -1,12 +1,14 @@
 package com.example.colabs
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -15,6 +17,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.colabs.ui.kadu.KaduScreen
 import com.example.colabs.ui.theme.ColabsTheme
 import java.time.LocalDateTime
 
@@ -22,30 +29,33 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ColabsTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+            val navController = rememberNavController()
+
+            NavHost(navController = navController, startDestination = "greeting") {
+                composable("greeting") { Greeting(navController = navController) }
+                composable("kadu") { KaduScreen { navController.popBackStack() } }
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 64.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        Column (modifier = Modifier.weight(1f)){
+fun Greeting(
+    navController: NavHostController
+) {
+    Surface(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+
+            Button(onClick = { navController.navigate("kadu") }) {
+                Text(text = "Kadu")
+            }
+
             Text(text = "PV", style = MaterialTheme.typography.titleMedium)
-            Text(text = "Kadu", style = MaterialTheme.typography.titleMedium)
             Text(text = "Pororonga")
             Text(text = "Carlos", style = MaterialTheme.typography.displayLarge)
             Text(text = "Luan")
@@ -58,10 +68,12 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun GreetingPreview() {
+    val navController = rememberNavController()
+
     ColabsTheme {
-        Greeting("Android")
+        Greeting(navController)
     }
 }
