@@ -4,6 +4,8 @@ import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.pager.VerticalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,15 +19,32 @@ import com.example.colabs.ui.theme.ColabsTheme
 fun KaduScreen(
     onBackPressed: () -> Unit
 ) {
+    val pagerState = rememberPagerState(pageCount = { 2 })
+    
+    VerticalPager(
+        state = pagerState
+    ) {
+        when (it) {
+            0 -> Home(onBackPressed)
+            1 -> WearTests()
+        }
+    }
+}
+
+@Composable
+fun Home(
+    onBackPressed: () -> Unit
+) {
     Surface(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceAround
         ) {
-            Text(text = "Carlos Eduardo")
-            Text(text = "a.k.a Kadu")
+            Text(text = "Home do Kadu")
+            Text(text = "para baixo: Wear sandbox")
             Button(onClick = { onBackPressed() }) {
                 Text(text = "Voltar")
             }
@@ -34,10 +53,11 @@ fun KaduScreen(
 }
 
 @Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
-@Preview(name = "Light Mode")
+//@Preview(name = "Light Mode")
 @Composable
 private fun KaduScreenPreview() {
     ColabsTheme {
         KaduScreen({})
     }
 }
+

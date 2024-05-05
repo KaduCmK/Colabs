@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Colabs"
 include(":app")
+include(":wear")
+include(":wear")
