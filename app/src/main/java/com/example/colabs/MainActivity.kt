@@ -17,7 +17,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role.Companion.Checkbox
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -27,6 +29,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.colabs.ui.kadu.KaduScreen
 import com.example.colabs.ui.theme.ColabsTheme
 import java.time.LocalDateTime
+import java.time.format.FormatStyle
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +70,7 @@ fun Greeting(
             Text(text = "Yuri")
             Text(text = "Amin", style = MaterialTheme.typography.titleSmall)
             Text(text = "Cucamonga", style = MaterialTheme.typography.titleSmall)
-
+            Text(text = "Zennis", style = MaterialTheme.typography.displayLarge, color = Color.Magenta, fontFamily = FontFamily.Cursive )
             Text(text = LocalDateTime.now().toString())
         }
     }
