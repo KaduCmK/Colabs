@@ -63,6 +63,7 @@ fun Greeting(
             Text(text = "PV", style = MaterialTheme.typography.titleMedium)
             Text(text = "Pororonga")
             Text(text = "Carlos", style = MaterialTheme.typography.displayLarge)
+            Text(text = "Luisa", style = MaterialTheme.typography.displayLarge)
             Text(text = "Luan")
             Text(text = "Yuri")
             Text(text = "Amin", style = MaterialTheme.typography.titleSmall)
